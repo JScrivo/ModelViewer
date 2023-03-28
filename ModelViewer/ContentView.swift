@@ -68,6 +68,8 @@ struct ARViewContainer: UIViewRepresentable {
         do{ //Load 3D model associated with the detected part
             let customEntity = try ModelEntity.loadModel(contentsOf: getDocumentsDirectory().appendingPathComponent("model.usdc"))
             boxAnchor.addChild(customEntity)
+            //Should be 0.1 scale
+            customEntity.setScale(SIMD3(x: 0.5, y: 0.5, z: 0.5), relativeTo: customEntity)
         }
         catch {
             print("Failed to load custom model")
