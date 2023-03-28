@@ -15,6 +15,7 @@
 		1781ED2F29D336AE0085D921 /* ModelViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781ED2E29D336AE0085D921 /* ModelViewerTests.swift */; };
 		1781ED3929D336AE0085D921 /* ModelViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781ED3829D336AE0085D921 /* ModelViewerUITests.swift */; };
 		1781ED3B29D336AE0085D921 /* ModelViewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781ED3A29D336AE0085D921 /* ModelViewerUITestsLaunchTests.swift */; };
+		1781ED4829D33CAD0085D921 /* bulb.STL in Resources */ = {isa = PBXBuildFile; fileRef = 1781ED4729D337390085D921 /* bulb.STL */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		1781ED3429D336AE0085D921 /* ModelViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModelViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1781ED3829D336AE0085D921 /* ModelViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewerUITests.swift; sourceTree = "<group>"; };
 		1781ED3A29D336AE0085D921 /* ModelViewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1781ED4729D337390085D921 /* bulb.STL */ = {isa = PBXFileReference; lastKnownFileType = file; path = bulb.STL; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		1781ED1A29D336AC0085D921 /* ModelViewer */ = {
 			isa = PBXGroup;
 			children = (
+				1781ED4729D337390085D921 /* bulb.STL */,
 				1781ED1B29D336AC0085D921 /* AppDelegate.swift */,
 				1781ED1D29D336AC0085D921 /* ContentView.swift */,
 				1781ED1F29D336AC0085D921 /* Experience.rcproject */,
@@ -236,6 +239,7 @@
 			files = (
 				1781ED2529D336AE0085D921 /* Preview Assets.xcassets in Resources */,
 				1781ED2229D336AE0085D921 /* Assets.xcassets in Resources */,
+				1781ED4829D33CAD0085D921 /* bulb.STL in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
