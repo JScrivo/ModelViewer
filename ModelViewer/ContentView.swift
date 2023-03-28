@@ -39,7 +39,7 @@ struct ARViewContainer: UIViewRepresentable {
                 
                 do {
                     let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-                    let documentDirectory = URL(fileURLWithPath: path)
+                    //let documentDirectory = URL(fileURLWithPath: path)
                     let originPath = getDocumentsDirectory().appendingPathComponent("model.usdc")
                     let destinationPath = getDocumentsDirectory().appendingPathComponent("model.usdz")
                     try FileManager.default.moveItem(at: originPath, to: destinationPath)
@@ -67,9 +67,21 @@ struct ARViewContainer: UIViewRepresentable {
         
         do{ //Load 3D model associated with the detected part
             let customEntity = try ModelEntity.loadModel(contentsOf: getDocumentsDirectory().appendingPathComponent("model.usdc"))
+            print(customEntity)
             boxAnchor.addChild(customEntity)
             //Should be 0.1 scale
             customEntity.setScale(SIMD3(x: 0.5, y: 0.5, z: 0.5), relativeTo: customEntity)
+            
+            //Change color
+            var material = SimpleMaterial()
+            material.color = .init(tint: .green)
+            material.roughness = 0.2
+            material.metallic = 0.7
+            
+            //customEntity.model?.materials[0] = material
+            customEntity.model?.materials.append(material)
+            
+            print(customEntity.model ?? "No model")
         }
         catch {
             print("Failed to load custom model")
