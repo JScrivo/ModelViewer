@@ -10,8 +10,9 @@ import RealityKit
 import ModelIO
 
 struct ContentView : View {
+    @ObservedObject var arController = ARController()
     var body: some View {
-        ARViewContainer().edgesIgnoringSafeArea(.all)
+        ARViewScreen(controller: arController)
     }
 }
 
