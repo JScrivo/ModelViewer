@@ -16,41 +16,15 @@ struct ARViewContainer: UIViewRepresentable {
         let arView = ARView(frame: .zero)
     
         let urlpath = Bundle.main.url(forResource: "bulb", withExtension: "STL")
-        //let url = URL(fileURLWithPath: urlpath!)
-        let model = MDLAsset(url: urlpath!)
         
-        if(MDLAsset.canExportFileExtension("usdc")){
-            let writeurl = getDocumentsDirectory().appendingPathComponent("model.usdc")
-            
-            print("yes")
-            
-            do{
-                print("Trying Conversion")
-                
-                try model.export(to: writeurl)
-                
-                print("Finished Conversion")
-                
-                do {
-                    let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-                    //let documentDirectory = URL(fileURLWithPath: path)
-                    let originPath = getDocumentsDirectory().appendingPathComponent("model.usdc")
-                    let destinationPath = getDocumentsDirectory().appendingPathComponent("model.usdz")
-                    try FileManager.default.moveItem(at: originPath, to: destinationPath)
-                    
-                    print("Rename Finished")
-                } catch {
-                    print(error)
-                }
-                
-                
-            }
-            catch{
-                print("Export error \(error)")
-            }
-            
-        }else {
-            print("no")
+        let convertedURL: URL
+        
+        do{
+            convertedURL = try convertToUSDz(urlpath: urlpath!)
+        }
+        catch {
+            print(error)
+            return arView
         }
         
         
@@ -60,7 +34,7 @@ struct ARViewContainer: UIViewRepresentable {
         //let object = model.object(at: 0)
         
         do{ //Load 3D model associated with the detected part
-            let customEntity = try ModelEntity.loadModel(contentsOf: getDocumentsDirectory().appendingPathComponent("model.usdc"))
+            let customEntity = try ModelEntity.loadModel(contentsOf: convertedURL)
             print(customEntity)
             boxAnchor.addChild(customEntity)
             //Should be 0.1 scale
@@ -93,10 +67,4 @@ struct ARViewContainer: UIViewRepresentable {
     
 }
 
-func getDocumentsDirectory() -> URL {
-    // find all possible documents directories for this user
-    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 
-    // just send back the first one, which ought to be the only one
-    return paths[0]
-}
