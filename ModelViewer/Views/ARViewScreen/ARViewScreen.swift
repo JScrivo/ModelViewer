@@ -17,23 +17,48 @@ struct ARViewScreen: View {
                 .onTapGesture(coordinateSpace: .global) { location in
                                 controller.raycastFunc(location: location)
                             }
-            HStack{
-                VStack{
-                    Button("Y+"){
-                        controller.rotateModel(amount: simd_quatf(angle: Float.pi/4, axis: [0, 1, 0]))
+            
+            VStack{
+                Spacer()
+                HStack{
+                    VStack{
+                        Button("X+"){
+                            controller.rotateModel(amount: simd_quatf(angle: Float.pi/4, axis: [1, 0, 0]))
+                        }
+                        .buttonStyle(ModelInteractButton())
+                        Button("X-"){
+                            controller.rotateModel(amount: simd_quatf(angle: -Float.pi/4, axis: [1, 0, 0]))
+                        }
+                        .buttonStyle(ModelInteractButton())
                     }
-                    .buttonStyle(ModelInteractButton())
-                    Button("Y-"){
-                        controller.rotateModel(amount: simd_quatf(angle: -Float.pi/4, axis: [0, 1, 0]))
+                    VStack{
+                        Button("Y+"){
+                            controller.rotateModel(amount: simd_quatf(angle: Float.pi/4, axis: [0, 1, 0]))
+                        }
+                        .buttonStyle(ModelInteractButton())
+                        Button("Y-"){
+                            controller.rotateModel(amount: simd_quatf(angle: -Float.pi/4, axis: [0, 1, 0]))
+                        }
+                        .buttonStyle(ModelInteractButton())
                     }
-                    .buttonStyle(ModelInteractButton())
+                    VStack{
+                        Button("Z+"){
+                            controller.rotateModel(amount: simd_quatf(angle: Float.pi/4, axis: [0, 0, 1]))
+                        }
+                        .buttonStyle(ModelInteractButton())
+                        Button("Z-"){
+                            controller.rotateModel(amount: simd_quatf(angle: -Float.pi/4, axis: [0, 0, 1]))
+                        }
+                        .buttonStyle(ModelInteractButton())
+                    }
                 }
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 15)
+                        .stroke(Color.black, lineWidth: 2)
+                )
             }
-            .padding()
-            .overlay(
-                RoundedRectangle(cornerRadius: 15)
-                    .stroke(Color.black, lineWidth: 2)
-            )
+            
         }
         
     }
