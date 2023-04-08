@@ -19,29 +19,14 @@ struct ARViewScreen: View {
                             }
             HStack{
                 VStack{
-                    Button(action: {
+                    Button("Y+"){
                         controller.rotateModel(amount: simd_quatf(angle: Float.pi/4, axis: [0, 1, 0]))
-                    }){
-                        Text("Y+")
-                            .padding()
-                            //.frame(minWidth: 0, maxWidth: .infinity)
-                            .foregroundColor(.black)
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .stroke(Color.black, lineWidth: 2)
-                                )
                     }
-                    Button(action: {
+                    .buttonStyle(ModelInteractButton())
+                    Button("Y-"){
                         controller.rotateModel(amount: simd_quatf(angle: -Float.pi/4, axis: [0, 1, 0]))
-                    }){
-                        Text("Y-")
-                            .padding()
-                            .foregroundColor(.black)
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .stroke(Color.black, lineWidth: 2)
-                                )
                     }
+                    .buttonStyle(ModelInteractButton())
                 }
             }
             .padding()
