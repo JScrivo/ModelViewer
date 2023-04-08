@@ -79,4 +79,12 @@ class ARController: ObservableObject {
         raycastAnchor.addChild(entity)
         arView.scene.anchors.append(raycastAnchor)
     }
+    
+    func rotateModel(amount: simd_quatf){
+        guard let entity = model else {
+            return
+        }
+        
+        entity.setOrientation(amount, relativeTo: entity)
+    }
 }
