@@ -16,6 +16,10 @@
 		1781ED3929D336AE0085D921 /* ModelViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781ED3829D336AE0085D921 /* ModelViewerUITests.swift */; };
 		1781ED3B29D336AE0085D921 /* ModelViewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781ED3A29D336AE0085D921 /* ModelViewerUITestsLaunchTests.swift */; };
 		1781ED4829D33CAD0085D921 /* bulb.STL in Resources */ = {isa = PBXBuildFile; fileRef = 1781ED4729D337390085D921 /* bulb.STL */; };
+		1781ED4C29D359AD0085D921 /* ARContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1781ED4B29D359AD0085D921 /* ARContainer.swift */; };
+		17ED424529E0B3D500908E19 /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED424429E0B3D500908E19 /* Conversion.swift */; };
+		17ED424D29E0CA3900908E19 /* ARViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED424C29E0CA3900908E19 /* ARViewScreen.swift */; };
+		17ED424F29E0CAFA00908E19 /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED424E29E0CAFA00908E19 /* ARController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,10 @@
 		1781ED3829D336AE0085D921 /* ModelViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewerUITests.swift; sourceTree = "<group>"; };
 		1781ED3A29D336AE0085D921 /* ModelViewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelViewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1781ED4729D337390085D921 /* bulb.STL */ = {isa = PBXFileReference; lastKnownFileType = file; path = bulb.STL; sourceTree = "<group>"; };
+		1781ED4B29D359AD0085D921 /* ARContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARContainer.swift; sourceTree = "<group>"; };
+		17ED424429E0B3D500908E19 /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
+		17ED424C29E0CA3900908E19 /* ARViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewScreen.swift; sourceTree = "<group>"; };
+		17ED424E29E0CAFA00908E19 /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,9 @@
 		1781ED1A29D336AC0085D921 /* ModelViewer */ = {
 			isa = PBXGroup;
 			children = (
+				17ED424B29E0CA1300908E19 /* Controllers */,
+				17ED424329E0B37500908E19 /* Model Manipulation */,
+				1781ED4929D358EB0085D921 /* Views */,
 				1781ED4729D337390085D921 /* bulb.STL */,
 				1781ED1B29D336AC0085D921 /* AppDelegate.swift */,
 				1781ED1D29D336AC0085D921 /* ContentView.swift */,
@@ -131,6 +142,39 @@
 				1781ED3A29D336AE0085D921 /* ModelViewerUITestsLaunchTests.swift */,
 			);
 			path = ModelViewerUITests;
+			sourceTree = "<group>";
+		};
+		1781ED4929D358EB0085D921 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1781ED4A29D359210085D921 /* ARViewScreen */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1781ED4A29D359210085D921 /* ARViewScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1781ED4B29D359AD0085D921 /* ARContainer.swift */,
+				17ED424C29E0CA3900908E19 /* ARViewScreen.swift */,
+			);
+			path = ARViewScreen;
+			sourceTree = "<group>";
+		};
+		17ED424329E0B37500908E19 /* Model Manipulation */ = {
+			isa = PBXGroup;
+			children = (
+				17ED424429E0B3D500908E19 /* Conversion.swift */,
+			);
+			path = "Model Manipulation";
+			sourceTree = "<group>";
+		};
+		17ED424B29E0CA1300908E19 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				17ED424E29E0CAFA00908E19 /* ARController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,8 +308,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17ED424F29E0CAFA00908E19 /* ARController.swift in Sources */,
 				1781ED1E29D336AC0085D921 /* ContentView.swift in Sources */,
+				17ED424529E0B3D500908E19 /* Conversion.swift in Sources */,
 				1781ED1C29D336AC0085D921 /* AppDelegate.swift in Sources */,
+				17ED424D29E0CA3900908E19 /* ARViewScreen.swift in Sources */,
+				1781ED4C29D359AD0085D921 /* ARContainer.swift in Sources */,
 				1781ED2029D336AC0085D921 /* Experience.rcproject in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
