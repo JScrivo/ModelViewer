@@ -24,7 +24,7 @@ class ARController: ObservableObject {
             let customEntity = try ModelEntity.loadModel(contentsOf: convertedURL)
             print(customEntity)
             //Should be 0.1 scale
-            customEntity.setScale(SIMD3(x: 0.5, y: 0.5, z: 0.5), relativeTo: customEntity)
+            customEntity.setScale(SIMD3(x: 0.1, y: 0.1, z: 0.1), relativeTo: customEntity)
             
             //Change color
             var material = SimpleMaterial()
