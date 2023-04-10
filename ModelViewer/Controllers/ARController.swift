@@ -12,6 +12,7 @@ class ARController: ObservableObject {
     
     @Published var model: ModelEntity?
     @Published var arView: ARView = ARView(frame: .zero)
+    @Published var lockRot: Bool = false
     
     init(){
         let urlpath = Bundle.main.url(forResource: "bulb", withExtension: "STL")
@@ -24,7 +25,7 @@ class ARController: ObservableObject {
             let customEntity = try ModelEntity.loadModel(contentsOf: convertedURL)
             print(customEntity)
             //Should be 0.1 scale
-            customEntity.setScale(SIMD3(x: 0.5, y: 0.5, z: 0.5), relativeTo: customEntity)
+            customEntity.setScale(SIMD3(x: 0.1, y: 0.1, z: 0.1), relativeTo: customEntity)
             
             //Change color
             var material = SimpleMaterial()
@@ -74,9 +75,27 @@ class ARController: ObservableObject {
             return
         }
         
+        let initOrien = entity.orientation(relativeTo: nil)
+        
+        print("Initial Orientation: \(initOrien)")
+        
         let raycastAnchor = AnchorEntity(world: result.worldTransform)
         
         raycastAnchor.addChild(entity)
         arView.scene.anchors.append(raycastAnchor)
+        
+        if(lockRot){
+            entity.setOrientation(initOrien, relativeTo: nil)
+        }
+        print("Orientation: \(entity.orientation(relativeTo: nil))")
+        
+    }
+    
+    func rotateModel(amount: simd_quatf){
+        guard let entity = model else {
+            return
+        }
+        
+        entity.setOrientation(amount, relativeTo: entity)
     }
 }

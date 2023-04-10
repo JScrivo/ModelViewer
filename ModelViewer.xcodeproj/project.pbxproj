@@ -20,6 +20,7 @@
 		17ED424529E0B3D500908E19 /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED424429E0B3D500908E19 /* Conversion.swift */; };
 		17ED424D29E0CA3900908E19 /* ARViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED424C29E0CA3900908E19 /* ARViewScreen.swift */; };
 		17ED424F29E0CAFA00908E19 /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED424E29E0CAFA00908E19 /* ARController.swift */; };
+		17ED425329E20E6300908E19 /* ModelInteractButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED425229E20E6300908E19 /* ModelInteractButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		17ED424429E0B3D500908E19 /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
 		17ED424C29E0CA3900908E19 /* ARViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewScreen.swift; sourceTree = "<group>"; };
 		17ED424E29E0CAFA00908E19 /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
+		17ED425229E20E6300908E19 /* ModelInteractButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInteractButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		1781ED4A29D359210085D921 /* ARViewScreen */ = {
 			isa = PBXGroup;
 			children = (
+				17ED425029E20DD600908E19 /* Compontents */,
 				1781ED4B29D359AD0085D921 /* ARContainer.swift */,
 				17ED424C29E0CA3900908E19 /* ARViewScreen.swift */,
 			);
@@ -175,6 +178,14 @@
 				17ED424E29E0CAFA00908E19 /* ARController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		17ED425029E20DD600908E19 /* Compontents */ = {
+			isa = PBXGroup;
+			children = (
+				17ED425229E20E6300908E19 /* ModelInteractButton.swift */,
+			);
+			path = Compontents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +322,7 @@
 				17ED424F29E0CAFA00908E19 /* ARController.swift in Sources */,
 				1781ED1E29D336AC0085D921 /* ContentView.swift in Sources */,
 				17ED424529E0B3D500908E19 /* Conversion.swift in Sources */,
+				17ED425329E20E6300908E19 /* ModelInteractButton.swift in Sources */,
 				1781ED1C29D336AC0085D921 /* AppDelegate.swift in Sources */,
 				17ED424D29E0CA3900908E19 /* ARViewScreen.swift in Sources */,
 				1781ED4C29D359AD0085D921 /* ARContainer.swift in Sources */,
