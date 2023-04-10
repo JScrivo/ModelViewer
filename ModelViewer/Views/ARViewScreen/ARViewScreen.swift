@@ -9,7 +9,7 @@ import SwiftUI
 import RealityKit
 
 struct ARViewScreen: View {
-    var controller: ARController
+    @ObservedObject var controller: ARController
     var body: some View {
         
         ZStack{
@@ -50,6 +50,10 @@ struct ARViewScreen: View {
                             controller.rotateModel(amount: simd_quatf(angle: -Float.pi/4, axis: [0, 0, 1]))
                         }
                         .buttonStyle(ModelInteractButton())
+                    }
+                    VStack{
+                        Toggle("Lock\nROT", isOn: $controller.lockRot)
+                        .toggleStyle(ModelInteractToggle())
                     }
                 }
                 .padding()

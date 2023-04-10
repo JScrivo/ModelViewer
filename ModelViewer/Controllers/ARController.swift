@@ -12,6 +12,7 @@ class ARController: ObservableObject {
     
     @Published var model: ModelEntity?
     @Published var arView: ARView = ARView(frame: .zero)
+    @Published var lockRot: Bool = false
     
     init(){
         let urlpath = Bundle.main.url(forResource: "bulb", withExtension: "STL")
@@ -74,10 +75,20 @@ class ARController: ObservableObject {
             return
         }
         
+        let initOrien = entity.orientation(relativeTo: nil)
+        
+        print("Initial Orientation: \(initOrien)")
+        
         let raycastAnchor = AnchorEntity(world: result.worldTransform)
         
         raycastAnchor.addChild(entity)
         arView.scene.anchors.append(raycastAnchor)
+        
+        if(lockRot){
+            entity.setOrientation(initOrien, relativeTo: nil)
+        }
+        print("Orientation: \(entity.orientation(relativeTo: nil))")
+        
     }
     
     func rotateModel(amount: simd_quatf){
