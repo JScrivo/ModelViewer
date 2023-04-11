@@ -15,9 +15,9 @@ class ARController: ObservableObject {
     @Published var lockRot: Bool = false
     
     init(){
-        let urlpath = Bundle.main.url(forResource: "bulb", withExtension: "STL")
+        //let urlpath = Bundle.main.url(forResource: "bulb", withExtension: "STL")
         
-        initializeModel(url: urlpath!)
+        //initializeModel(url: urlpath!)
     }
     
     func loadModel(convertedURL: URL){

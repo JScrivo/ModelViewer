@@ -9,7 +9,10 @@ import SwiftUI
 import RealityKit
 
 struct ARViewScreen: View {
-    @ObservedObject var controller: ARController
+    @EnvironmentObject var controller: ARController
+    var model: URL
+    
+    
     var body: some View {
         
         ZStack{
@@ -63,6 +66,8 @@ struct ARViewScreen: View {
                 )
             }
             
+        }.task {
+            controller.loadModel(convertedURL: model)
         }
         
     }
@@ -70,6 +75,6 @@ struct ARViewScreen: View {
 
 struct ARViewScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ARViewScreen(controller: ARController())
+        ARViewScreen(model: URL(fileURLWithPath: ""))
     }
 }
