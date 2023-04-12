@@ -71,3 +71,11 @@ func getDocumentsDirectory() -> URL {
     // just send back the first one, which ought to be the only one
     return paths[0]
 }
+
+func deleteDocument(url: URL){
+    do {
+        try FileManager.default.removeItem(at: url)
+    } catch {
+        print(error.localizedDescription)
+    }
+}

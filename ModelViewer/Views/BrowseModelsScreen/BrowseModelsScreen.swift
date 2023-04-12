@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct BrowseModelsScreen: View {
     @ObservedObject var controller: ModelController
@@ -19,6 +20,12 @@ struct BrowseModelsScreen: View {
                             file in
                             
                             NavigationLink(file.deletingPathExtension().lastPathComponent, destination: ARViewScreen(model: file))
+                                .swipeActions{
+                                    Button(role: .destructive){
+                                        deleteDocument(url: file)
+                                    }
+                                    label: { Label("Delete", systemImage: "trash")}
+                                }
                         }
                     }
                 }
@@ -38,7 +45,7 @@ struct BrowseModelsScreen: View {
         }
         .fileImporter(
                     isPresented: $isImporting,
-                    allowedContentTypes: [.item],
+                    allowedContentTypes: [UTType.init(filenameExtension: "stl")!],
                     allowsMultipleSelection: false
                 ) { result in
                     do {
