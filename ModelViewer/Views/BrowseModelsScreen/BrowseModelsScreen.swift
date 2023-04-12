@@ -12,9 +12,9 @@ struct BrowseModelsScreen: View {
     var body: some View {
         VStack{
             Text("Imported Models")
-            Button("Fetch Models"){
-                controller.fetchConvertedFiles()
-            }
+//            Button("Fetch Models"){
+//                controller.fetchConvertedFiles()
+//            }
             List{
                 ForEach(controller.modelList, id: \.self){
                     file in
@@ -25,6 +25,9 @@ struct BrowseModelsScreen: View {
             
         }
         .navigationTitle("Browse Models")
+        .task {
+            controller.fetchConvertedFiles()
+        }
     }
 }
 
