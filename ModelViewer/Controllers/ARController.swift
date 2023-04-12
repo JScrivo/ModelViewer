@@ -79,6 +79,9 @@ class ARController: ObservableObject {
         
         print("Initial Orientation: \(initOrien)")
         
+        //Prevents multiple models from persisting
+        arView.scene.anchors.removeAll()
+        
         let raycastAnchor = AnchorEntity(world: result.worldTransform)
         
         raycastAnchor.addChild(entity)
