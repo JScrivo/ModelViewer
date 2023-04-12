@@ -5,20 +5,21 @@ App for viewing 3D model files to preview their scale before 3D printing.
 
 ## Requirements:
 - iOS 16.2 or newer
-- Xcode 14 or newer
+- Xcode 14.2 or newer
 - ARkit compatible iPhone or iPad
 
-## Current Capabilities
+![modelviewer](https://user-images.githubusercontent.com/23454651/231566586-127bb51f-65e5-42ba-b242-0442378fd629.gif)
+
+## Current Features
 - Tap to place model
 - Rotate model
 - Lock placement rotation relative to world
-
-Note: Currently only converts and displays built-in model
-
-## Planned Capabilities
 - Import any .stl file
-- Scale models
 - Import from local storage
+
+## Planned Features
+- Scale models
 - Import from url
 - Import from QR code
 - Change model color
+- Display detected plane
