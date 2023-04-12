@@ -24,4 +24,16 @@ class ModelController: ObservableObject {
         print("Contents: \(contents)")
         modelList = contents
     }
+    
+    func importModel(url: URL) throws {
+        print("Trying to convert Selected File")
+        let convertedURL = try convertToUSDz(urlpath: url)
+        print(convertedURL)
+        modelList.append(convertedURL)
+    }
+    
+    func deleteModel(url: URL){
+        deleteDocument(url: url)
+        modelList = modelList.filter{ $0 != url }
+    }
 }

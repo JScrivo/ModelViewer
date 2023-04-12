@@ -22,7 +22,7 @@ struct BrowseModelsScreen: View {
                             NavigationLink(file.deletingPathExtension().lastPathComponent, destination: ARViewScreen(model: file))
                                 .swipeActions{
                                     Button(role: .destructive){
-                                        deleteDocument(url: file)
+                                        controller.deleteModel(url: file)
                                     }
                                     label: { Label("Delete", systemImage: "trash")}
                                 }
@@ -53,10 +53,7 @@ struct BrowseModelsScreen: View {
                         if selectedFile.startAccessingSecurityScopedResource() {
                             defer { selectedFile.stopAccessingSecurityScopedResource() }
                             
-                            print("Trying to convert Selected File")
-                            let convertedURL = try convertToUSDz(urlpath: selectedFile)
-                            print(convertedURL)
-                            controller.modelList.append(convertedURL)
+                            try controller.importModel(url: selectedFile)
                             
                         } else {
                             // Handle denied access
