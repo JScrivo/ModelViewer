@@ -7,12 +7,16 @@
 
 import SwiftUI
 import RealityKit
-import ModelIO
 
 struct ContentView : View {
-    @ObservedObject var arController = ARController()
+    @StateObject var arController = ARController()
+    @ObservedObject var modelController = ModelController()
     var body: some View {
-        ARViewScreen(controller: arController)
+        //ARViewScreen(controller: arController)
+        NavigationStack{
+            BrowseModelsScreen(controller: modelController)
+        }
+        .environmentObject(arController)
     }
 }
 

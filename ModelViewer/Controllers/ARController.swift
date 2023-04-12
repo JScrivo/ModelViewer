@@ -15,9 +15,9 @@ class ARController: ObservableObject {
     @Published var lockRot: Bool = false
     
     init(){
-        let urlpath = Bundle.main.url(forResource: "bulb", withExtension: "STL")
+        //let urlpath = Bundle.main.url(forResource: "bulb", withExtension: "STL")
         
-        initializeModel(url: urlpath!)
+        //initializeModel(url: urlpath!)
     }
     
     func loadModel(convertedURL: URL){
@@ -78,6 +78,9 @@ class ARController: ObservableObject {
         let initOrien = entity.orientation(relativeTo: nil)
         
         print("Initial Orientation: \(initOrien)")
+        
+        //Prevents multiple models from persisting
+        arView.scene.anchors.removeAll()
         
         let raycastAnchor = AnchorEntity(world: result.worldTransform)
         
